@@ -68,9 +68,21 @@ class Calculator {
 
 	if you run this function twice with the same String input, it must return 2 unique String IDs
 	 */
-	String createUniqueID(String n){
+	String createUniqueID(String n) {
+		final String AlphaNumericString =
+			"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+			+ "0123456789"
+			+ "abcdefghijklmnopqrstuvxyz";
+		final int PadLength = 16;
 		
-		return null;
+		StringBuilder sb = new StringBuilder(PadLength);
+		
+		for (int i = 0; i < PadLength; i++) {
+			int index = (int)(AlphaNumericString.length() * Math.random());
+			sb.append(AlphaNumericString.charAt(index));
+		}
+		
+		return n + sb.toString();
 	}
 	
 	
